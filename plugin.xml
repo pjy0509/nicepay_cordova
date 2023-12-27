@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin
+        id="nicepay-cordova"
+        version="0.9.3"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+>
+    <name>NicepayCordova</name>
+
+    <!-- TODO-->
+    <!-- <preference name="URL_SCHEME" /> -->
+
+    <dependency id="cordova-plugin-device"/>
+    <asset src="www/nicepay-webview.html" target="nicepay-webview.html"/>
+
+    <js-module name="NicepayCordova" src="www/NicepayCordova.js">
+        <clobbers target="cordova.plugins.NicepayCordova"/>
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="NicepayCordova">
+                <param name="android-package" value="kr.nicepay.cordova.NicepayCordova"/>
+            </feature>
+            <preference name="AndroidLaunchMode" value="singleInstance"/>
+            <allow-navigation href="*"/>
+        </config-file>
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <activity
+                    android:name="kr.nicepay.cordova.NicepayActivity"
+                    android:label="NicepayActivity"
+            >
+            </activity>
+        </config-file>
+        <source-file src="src/android/drawable-ldpi/ic_np_back.png" target-dir="res/drawable-ldpi" />
+        <source-file src="src/android/drawable-ldpi/ic_np_close.png" target-dir="res/drawable-ldpi" />
+        <source-file src="src/android/drawable-mdpi/ic_np_back.png" target-dir="res/drawable-mdpi" />
+        <source-file src="src/android/drawable-mdpi/ic_np_close.png" target-dir="res/drawable-mdpi" />
+        <source-file src="src/android/drawable-hdpi/ic_np_back.png" target-dir="res/drawable-hdpi" />
+        <source-file src="src/android/drawable-hdpi/ic_np_close.png" target-dir="res/drawable-hdpi" />
+        <source-file src="src/android/drawable-xhdpi/ic_np_back.png" target-dir="res/drawable-xhdpi" />
+        <source-file src="src/android/drawable-xhdpi/ic_np_close.png" target-dir="res/drawable-xhdpi" />
+        <source-file src="src/android/drawable-xxhdpi/ic_np_back.png" target-dir="res/drawable-xxhdpi" />
+        <source-file src="src/android/drawable-xxhdpi/ic_np_close.png" target-dir="res/drawable-xxhdpi" />
+        <source-file src="src/android/drawable-xxxhdpi/ic_np_back.png" target-dir="res/drawable-xxxhdpi" />
+        <source-file src="src/android/drawable-xxxhdpi/ic_np_close.png" target-dir="res/drawable-xxxhdpi" />
+        <source-file src="src/android/nicepay_activity.xml" target-dir="res/layout"/>
+        <source-file src="src/android/ConvertUtils.java" target-dir="src/kr/nicepay/cordova"/>
+        <source-file src="src/android/NicepayCordova.java" target-dir="src/kr/nicepay/cordova"/>
+        <source-file src="src/android/NicepayActivity.java" target-dir="src/kr/nicepay/cordova"/>
+        <source-file src="src/android/NicepayWebViewClient.java" target-dir="src/kr/nicepay/cordova"/>
+        <source-file src="src/android/NicepayWebChromeClient.java" target-dir="src/kr/nicepay/cordova"/>
+    </platform>
+
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="NicepayCordova">
+                <param name="ios-package" value="NicepayCordova"/>
+            </feature>
+        </config-file>
+        <source-file src="src/ios/NicepayCordova.h"/>
+        <source-file src="src/ios/NicepayCordova.m"/>
+        <source-file src="src/ios/NicepayViewController.h"/>
+        <source-file src="src/ios/NicepayViewController.m"/>
+        <source-file src="src/ios/ic_np_back.png"/>
+        <source-file src="src/ios/ic_np_close.png"/>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>kftc-bankpay</string>
+                <string>ispmobile</string>
+                <string>itms-apps</string>
+                <string>hdcardappcardansimclick</string>
+                <string>smhyundaiansimclick</string>
+                <string>shinhan-sr-ansimclick</string>
+                <string>smshinhanansimclick</string>
+                <string>kb-acp</string>
+                <string>mpocket.online.ansimclick</string>
+                <string>ansimclickscard</string>
+                <string>ansimclickipcollect</string>
+                <string>vguardstart</string>
+                <string>samsungpay</string>
+                <string>scardcertiapp</string>
+                <string>lottesmartpay</string>
+                <string>lotteappcard</string>
+                <string>cloudpay</string>
+                <string>nhappvardansimclick</string>
+                <string>nonghyupcardansimclick</string>
+                <string>citispay</string>
+                <string>citicardappkr</string>
+                <string>citimobileapp</string>
+                <string>kakaotalk</string>
+                <string>payco</string>
+                <string>lpayapp</string>
+                <string>hanamopmoasign</string>
+                <string>wooripay</string>
+                <string>nhallonepayansimclick</string>
+                <string>hanawalletmembers</string>
+                <string>newliiv</string>
+                <string>shinsegaeeasypayment</string>
+                <string>newsmartpib</string>
+                <string>yonseipay</string>
+                <string>lmslpay</string>
+                <string>supertoss</string>
+                <string>liivbank</string>
+                <string>naversearchthirdlogin</string>
+                <string>com.wooricard.wcard"</string>
+                <string>shinhan-sr-ansimclick-lpay</string>
+                <string>mpocket.online.ansimclick</string>
+                <string>kbbank</string>
+            </array>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSAllowsArbitraryLoadsInWebContent</key>
+                <true/>
+                <key>NSAllowsArbitraryLoads</key>
+                <true/>
+            </dict>
+        </config-file>
+    </platform>
+</plugin>

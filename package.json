@@ -1,0 +1,27 @@
+{
+  "name": "nicepay-cordova",
+  "version": "1.0.0",
+  "description": "Nicepayment Cordova Plugin",
+  "cordova": {
+    "id": "nicepay-cordova",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "JunYoung Park",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pjy0509/nicepay_cordova.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pjy0509/nicepay_cordova/issues"
+  },
+  "homepage": "https://github.com/pjy0509/nicepay_cordova#readme"
+}
